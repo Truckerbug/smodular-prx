@@ -58,6 +58,39 @@ body {
 	color: white;
 }
 
+header {
+	margin: 0 16px;
+	margin-top: auto;
+	display: flex;
+	flex-direction: column;
+	line-height: 30px;
+	margin-bottom: 20px;
+}
+
+header > div {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 15px;
+}
+
+header a,
+header span {
+	margin: 0 15px;
+	text-decoration: none;
+	color: #fff;
+	font-size: 15px;
+}
+
+header a {
+	cursor: pointer;
+}
+
+header a:hover {
+	text-decoration: underline;
+}
+
 footer {
 	margin: 0 16px;
 	margin-top: auto;
@@ -156,4 +189,25 @@ footer a:hover {
 
 .credit input:checked ~ pre {
 	display: block;
+}
+
+.games {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 15px;
+	padding: 20px;
+	/* border: #fff 1px solid; */
+	color: #fff;
+	margin-bottom: 15px;
+	margin-left: auto;
+}
+
+.games a {
+	display: block;
+	padding: 10px 20px;
+	border: #fff 1px solid;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
 }
