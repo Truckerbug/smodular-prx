@@ -1,7 +1,7 @@
 // escape.js
 document.addEventListener('keydown', function(event) {
     // Check if the pressed key is the backtick
-    if (event.key === 'Backtick') {
+    if (event.key === '`') {
         newTab();
     }
 });
