@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classes</title> <link rel="icon" type="image/x-icon" href="https://www.google.com/favicon.ico">
+    <style>
+        body { background: #111; color: white; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .launch-btn { padding: 15px 30px; font-size: 1.2rem; cursor: pointer; background: #333; color: white; border: 1px solid #555; border-radius: 8px; transition: 0.3s; }
+        .launch-btn:hover { background: #444; }
+    </style>
+</head>
+<body>
+
+    <button class="launch-btn" onclick="openProxy()">test google</button>
+
+    <script>
+        
+        function openProxy() {
+            // 1. The URL of your GitHub Pages site where the proxy files actually live
+            // (e.g., where your uv.config.js or scramjet files are)
+            const proxyLocation = "https://google.com/"
+
+            // 2. Open the blank tab
+            const win = window.open('about:blank', '_blank');
+            if (!win) {
+                alert("Popup blocked! Please allow popups to use the proxy.");
+                return;
+            }
+
+            // 3. Style the new window's body
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+
+            // 4. Create and inject the iframe
+            const iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.margin = '0';
+            iframe.referrerPolicy = 'no-referrer';
+            iframe.src = proxyLocation;
+
+            win.document.body.appendChild(iframe);
+
+            // 5. Optional: Redirect the original tab to something "safe"
+            window.close();
+        }
+    </script>
+</body>
+</html>
