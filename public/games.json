@@ -1,7 +1,0 @@
-{
-  "websites": [
-    { "name": "Agar.io", "url": "https://agar.io/" },
-    { "name": "Slither.io", "url": "https://slither.io" },
-    { "name": "MDN Web Docs", "url": "https://developer.mozilla.org" }
-  ]
-}
