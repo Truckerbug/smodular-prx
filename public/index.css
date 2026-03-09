@@ -45,6 +45,10 @@ body {
 	font-family: "Courier New", Courier, monospace;
 }
 
+#countdown {
+	color: #c8c8c8;
+}
+
 .logo {
 	height: 25vh;
 }
