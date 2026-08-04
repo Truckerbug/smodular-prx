@@ -1,1 +1,1 @@
-# This proxy uses Scramjet for the backend
+# No longer functional. Archived forever. See you next year!
