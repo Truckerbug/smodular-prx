@@ -1,7 +1,8 @@
 {
   "websites": [
-    { "name": "Agar.io", "url": "https://agar.io/" },
-    { "name": "Slither.io", "url": "https://slither.io" },
+    { "name": "Diep.io", "url": "https://diep.io" },
+    { "name": "WipEOut", "url": "https://phoboslab.org/wipegame" },
+    { "name": "EmuBrowser", "url": "https://emubrowser.com" },
     { "name": "MDN Web Docs", "url": "https://developer.mozilla.org" }
   ]
 }
