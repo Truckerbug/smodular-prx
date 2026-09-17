@@ -3,6 +3,11 @@
     { "name": "Diep.io", "url": "https://diep.io" },
     { "name": "WipEOut", "url": "https://phoboslab.org/wipegame" },
     { "name": "EmuBrowser", "url": "https://emubrowser.com" },
+    { "name": "GameBoy Advanced Emulator", "url": "https://bobzgames.github.io/GBA/" },
+    { "name": "BitLife", "url": "https://blobby-boi.github.io/BitLife/" },
+    { "name": "Elite Gamez", "url": "https://elite-gamez.github.io/" },
+    { "name": "Hub Pro Games", "url": "https://hub-pro.github.io/" },
+    { "name": "DS Emulator", "url": "https://ds.brian.rip/" },
     { "name": "MDN Web Docs", "url": "https://developer.mozilla.org" }
   ]
 }
