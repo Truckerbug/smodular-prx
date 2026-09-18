@@ -20,6 +20,12 @@ const error = document.getElementById("sj-error");
  */
 const errorCode = document.getElementById("sj-error-code");
 
+const nav = document.getElementById("sj-nav");
+const backBtn = document.getElementById("sj-back");
+const forwardBtn = document.getElementById("sj-forward");
+const reloadBtn = document.getElementById("sj-reload");
+const exitBtn = document.getElementById("sj-exit");
+
 const { ScramjetController } = $scramjetLoadController();
 
 const scramjet = new ScramjetController({
@@ -61,4 +67,14 @@ form.addEventListener("submit", async (event) => {
 	frame.frame.id = "sj-frame";
 	document.body.appendChild(frame.frame);
 	frame.go(url);
+
+	// wire up the nav bar to this frame's own history controls
+	nav.hidden = false;
+	backBtn.onclick = () => frame.back();
+	forwardBtn.onclick = () => frame.forward();
+	reloadBtn.onclick = () => frame.reload();
+	exitBtn.onclick = () => {
+		frame.frame.remove();
+		nav.hidden = true;
+	};
 });
