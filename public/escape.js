@@ -11,7 +11,7 @@ function newTab() {
 
     const win = window.open("about:blank", "_blank");
     if (!win) {
-      alert("please enable popups);
+      alert("please enable popups");
       return;
     }
   win.document.body.style.margin = "0";
