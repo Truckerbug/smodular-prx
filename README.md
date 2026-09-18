@@ -14,12 +14,22 @@ Visual updates and backend progress are coming soon!
 
 ## Setup
 
-If you would like to build this proxy for yourself, setup should be simple. Simply clone the repository and build using Docker:
+If you would like to build this proxy for yourself, setup should be simple. If you simply want an exposed port on your local network:
 
 ```sh
 git clone https://github.com/Truckerbug/smodular-prx.git && cd smodular-prx
 docker build -t smodular-prx .
 docker run -d -p 12345:8080 --name smodular-prx smodular-prx
+```
+
+Or, if you want a more secure route, you will need to chain NGINX and a local server:
+
+```sh
+docker run -d \
+  --restart unless-stopped \
+  --name smodular-prx \
+  -p 127.0.0.1:8080:8080 \
+  smodular-prx
 ```
 
 Simply replace the port number (12345) with a number of your choice.

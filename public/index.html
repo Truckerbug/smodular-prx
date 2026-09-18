@@ -1,18 +1,25 @@
 <!doctype html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
 		/>
-		<title>Google Classroom</title>
+		<title>SMDPRX</title>
 
 		<link rel="shortcut icon" content="classroom.svg" />
-	
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+
 		<script src="/scram/scramjet.all.js"></script>
 		<script src="/baremux/index.js"></script>
-		
+
 		<link rel="stylesheet" href="index.css" />
 		<script src="register-sw.js" defer></script>
 		<script src="search.js" defer></script>
@@ -21,42 +28,63 @@
 	</head>
 
 	<body>
-		<header>
+		<div class="statusbar">
 			<div>
-				<a title="Games" href="games.html">Games</a>
+				<span class="callsign">SMDPRX</span>
+				<span class="link-state">LINK: READY</span>
 			</div>
-		</header>
-		<header>
-			<div class="justify-right">
-				<p class="flex-center" id="countdown"></p>
-				<script src="countdown.js"></script>
+			<div class="statusbar-right">
+				<span id="clock"></span>
+				<a href="games.html">/games</a>
 			</div>
-		</header>
-		<div title="logo" class="flex-center logo-wrapper header-center">
-			<h1>SMODULAR PR*XY</h1>
-		</div>
-		<div class="flex-center desc">
-			<p>
-				have fun
-			</p>
 		</div>
 
-		<form id="sj-form" class="flex-center">
-			<input
-				id="sj-search-engine"
-				value="https://www.google.com/search?q=%s"
-				type="hidden"
-			/>
-			<input id="sj-address" type="text" placeholder="Search the web freely" />
-		</form>
-		<div class="desc left-margin">
-			<p id="sj-error"></p>
-			<pre id="sj-error-code"></pre>
+		<div class="sweep-wrap" aria-hidden="true">
+			<div class="sweep"><div class="sweep-arm"></div></div>
 		</div>
-		<footer>
-			<div>
-				<a title="License information" href="credits.html">Backend credits</a>
+
+		<main>
+			<h1 class="callsign-title">SMODULAR PRX</h1>
+			<p class="tagline">get where you're going</p>
+
+			<form id="sj-form">
+				<input
+					id="sj-search-engine"
+					value="https://www.google.com/search?q=%s"
+					type="hidden"
+				/>
+				<div class="prompt-row">
+					<span class="prompt-symbol">&gt;</span>
+					<input
+						id="sj-address"
+						type="text"
+						placeholder="type an address or search term"
+						autocomplete="off"
+					/>
+					<button class="go-btn" type="submit">GO</button>
+				</div>
+			</form>
+
+			<div class="desc left-margin">
+				<p id="sj-error"></p>
+				<pre id="sj-error-code"></pre>
 			</div>
+		</main>
+
+		<div id="sj-nav" class="sj-nav" hidden>
+			<button id="sj-back" type="button" title="Back">&larr;</button>
+			<button id="sj-forward" type="button" title="Forward">&rarr;</button>
+			<button id="sj-reload" type="button" title="Reload">&#8635;</button>
+			<button id="sj-exit" type="button" title="Exit proxy">&times;</button>
+		</div>
+
+		<footer>
+			<div class="paths">
+				<a href="games.html">/games</a>
+				<a href="credits.html">/credits</a>
+			</div>
+			<p id="countdown"></p>
+			<script src="countdown.js"></script>
 		</footer>
 	</body>
 </html>

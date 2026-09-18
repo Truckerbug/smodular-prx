@@ -1,12 +1,63 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap");
+:root {
+	--bg: #eef1f3;
+	--bg-panel: #ffffff;
+	--border: #c7cdd1;
+	--text: #10161c;
+	--text-dim: #5b6670;
+	--accent: #b57a00;
+	--accent-soft: rgba(181, 122, 0, 0.12);
+	--danger: #b3261e;
+	--font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	--font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--bg: #0a0e12;
+		--bg-panel: #12181f;
+		--border: #263039;
+		--text: #d8e3e8;
+		--text-dim: #6b7680;
+		--accent: #ffb000;
+		--accent-soft: rgba(255, 176, 0, 0.14);
+		--danger: #ff6b5e;
+	}
+}
+
+:root[data-theme="dark"] {
+	--bg: #0a0e12;
+	--bg-panel: #12181f;
+	--border: #263039;
+	--text: #d8e3e8;
+	--text-dim: #6b7680;
+	--accent: #ffb000;
+	--accent-soft: rgba(255, 176, 0, 0.14);
+	--danger: #ff6b5e;
+}
+
+* {
+	box-sizing: border-box;
+}
 
 body {
-	font-family: "Roboto", Arial, Helvetica, sans-serif;
+	font-family: var(--font-sans);
 	margin: 0;
-	background: #111;
+	background: var(--bg);
+	color: var(--text);
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	position: relative;
+	overflow-x: hidden;
+}
+
+a {
+	color: inherit;
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
 }
 
 .flex-center {
@@ -31,22 +82,18 @@ body {
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: #111;
+	background-color: var(--bg);
 }
 
 #sj-error {
-	color: #ff6666 !important;
+	color: var(--danger) !important;
 	white-space: pre-wrap;
 }
 
 #sj-error-code {
 	font-size: 12px;
-	color: #fff;
-	font-family: "Courier New", Courier, monospace;
-}
-
-#countdown {
-	color: #c8c8c8;
+	color: var(--text);
+	font-family: var(--font-mono);
 }
 
 .logo {
@@ -55,50 +102,19 @@ body {
 
 .logo-wrapper .text {
 	font-size: 75px;
-	color: #fff;
+	color: var(--text);
 }
 
 .logo-wrapper h1 {
-	color: white;
+	color: var(--text);
+	font-family: var(--font-mono);
 }
 
 .justify-right {
 	justify-content: right;
 }
 
-header {
-	margin: 0 16px;
-	margin-top: auto;
-	display: flex;
-	flex-direction: column;
-	line-height: 30px;
-	margin-bottom: 20px;
-}
-
-header > div {
-	display: flex;
-	justify-content: left;
-	align-items: center;
-	flex-wrap: wrap;
-	margin-bottom: 15px;
-}
-
-header a,
-header span {
-	margin: 0 15px;
-	text-decoration: none;
-	color: #fff;
-	font-size: 15px;
-}
-
-header a {
-	cursor: pointer;
-}
-
-header a:hover {
-	text-decoration: underline;
-}
-
+header,
 footer {
 	margin: 0 16px;
 	margin-top: auto;
@@ -108,6 +124,7 @@ footer {
 	margin-bottom: 20px;
 }
 
+header > div,
 footer > div {
 	display: flex;
 	justify-content: left;
@@ -116,57 +133,42 @@ footer > div {
 	margin-bottom: 15px;
 }
 
+header a,
+header span,
 footer a,
 footer span {
 	margin: 0 15px;
 	text-decoration: none;
-	color: #fff;
+	color: var(--text);
 	font-size: 15px;
 }
 
+header a,
 footer a {
 	cursor: pointer;
 }
 
+header a:hover,
 footer a:hover {
 	text-decoration: underline;
 }
 
 .desc p {
 	width: 560px;
-	color: rgba(253, 253, 253, 0.514);
-}
-
-#sj-address {
-	background: none;
-	font-family: inherit;
-	padding: 0px 17px;
-	height: 48px;
-	border: 1px solid rgb(255, 255, 255, 0.2);
-	color: var(--text-color);
-	border-radius: 3px;
-	outline: none;
-	width: 350px;
-	margin-top: 5px;
-	border-radius: 50px;
-	color: #fff;
-	transition: border-radius 0.1s;
-}
-
-#sj-address:focus {
-	border: 1px solid rgba(253, 253, 253, 0.514);
-	border-radius: 6px;
+	max-width: 90vw;
+	color: var(--text-dim);
 }
 
 .credit {
-	border-radius: 10px;
+	border-radius: 4px;
 	padding: 10px;
 	display: block;
-	border: #fff 1px solid;
-	color: #fff;
+	border: 1px solid var(--border);
+	color: var(--text);
 	display: flex;
 	flex-wrap: wrap;
 	margin-bottom: 15px;
+	background: var(--bg-panel);
 }
 
 .credit label {
@@ -176,7 +178,7 @@ footer a:hover {
 
 .credit a,
 .credit label {
-	color: white;
+	color: var(--text);
 	text-decoration: underline;
 	text-align: right;
 }
@@ -184,6 +186,7 @@ footer a:hover {
 .credit pre {
 	display: none;
 	width: 100%;
+	font-family: var(--font-mono);
 }
 
 .credit label::after {
@@ -205,8 +208,7 @@ footer a:hover {
 	justify-content: center;
 	gap: 15px;
 	padding: 20px;
-	/* border: #fff 1px solid; */
-	color: #fff;
+	color: var(--text);
 	margin-bottom: 15px;
 	margin-left: auto;
 }
@@ -214,8 +216,229 @@ footer a:hover {
 .games a {
 	display: block;
 	padding: 10px 20px;
-	border: #fff 1px solid;
-	color: #fff;
+	border: 1px solid var(--border);
+	color: var(--text);
 	text-decoration: none;
 	text-align: center;
+	border-radius: 2px;
+}
+
+.games a:hover {
+	border-color: var(--accent);
+	color: var(--accent);
+}
+
+/* ---- status bar ---- */
+.statusbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 14px 22px;
+	font-family: var(--font-mono);
+	font-size: 12.5px;
+	letter-spacing: 0.02em;
+	border-bottom: 1px solid var(--border);
+	color: var(--text-dim);
+	flex-wrap: wrap;
+	gap: 8px;
+	z-index: 2;
+}
+
+.statusbar .callsign {
+	color: var(--text);
+	font-weight: 600;
+}
+
+.statusbar .link-state {
+	margin-left: 14px;
+}
+
+.statusbar-right {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+}
+
+.statusbar-right a {
+	text-decoration: none;
+	border-bottom: 1px solid transparent;
+}
+.statusbar-right a:hover {
+	border-bottom-color: var(--text-dim);
+}
+
+/* ---- radar sweep ---- */
+.sweep-wrap {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.sweep {
+	width: min(70vw, 640px);
+	aspect-ratio: 1;
+	border-radius: 50%;
+	border: 1px solid var(--border);
+	position: relative;
+	opacity: 0.5;
+}
+.sweep::before,
+.sweep::after {
+	content: "";
+	position: absolute;
+	inset: 18%;
+	border-radius: 50%;
+	border: 1px solid var(--border);
+}
+.sweep::after {
+	inset: 36%;
+}
+
+.sweep-arm {
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	background: conic-gradient(from 0deg, var(--accent-soft), transparent 35%);
+	animation: spin 9s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sweep-arm {
+		animation: none;
+	}
+}
+
+/* ---- hero ---- */
+main {
+	position: relative;
+	z-index: 1;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 20px;
+	text-align: center;
+}
+
+.callsign-title {
+	font-family: var(--font-mono);
+	font-weight: 600;
+	font-size: clamp(28px, 6vw, 52px);
+	letter-spacing: 0.08em;
+	margin: 0;
+}
+
+.tagline {
+	color: var(--text-dim);
+	font-size: 15px;
+	margin: 10px 0 40px;
+}
+
+#sj-form {
+	width: min(560px, 90vw);
+}
+
+.prompt-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	border-bottom: 1px solid var(--border);
+	padding-bottom: 10px;
+}
+
+.prompt-symbol {
+	font-family: var(--font-mono);
+	color: var(--accent);
+	font-size: 20px;
+}
+
+#sj-address {
+	flex: 1;
+	background: transparent;
+	border: none;
+	color: var(--text);
+	font-family: var(--font-mono);
+	font-size: 17px;
+	padding: 6px 2px;
+}
+#sj-address::placeholder {
+	color: var(--text-dim);
+}
+#sj-address:focus {
+	outline: none;
+}
+
+.go-btn {
+	background: transparent;
+	border: 1px solid var(--border);
+	color: var(--text);
+	font-family: var(--font-mono);
+	font-size: 14px;
+	padding: 8px 14px;
+	cursor: pointer;
+	border-radius: 2px;
+}
+.go-btn:hover {
+	border-color: var(--accent);
+	color: var(--accent);
+}
+
+/* ---- proxy nav (back/forward/reload/exit) ---- */
+.sj-nav {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 10000;
+	display: flex;
+	gap: 6px;
+}
+.sj-nav button {
+	background: var(--bg-panel);
+	color: var(--text);
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	padding: 6px 10px;
+	cursor: pointer;
+	font-size: 16px;
+}
+.sj-nav button:hover {
+	border-color: var(--accent);
+	color: var(--accent);
+}
+
+/* ---- footer paths (homepage) ---- */
+footer .paths a {
+	text-decoration: none;
+	margin-right: 16px;
+}
+footer .paths a:hover {
+	color: var(--accent);
+	text-decoration: none;
+}
+
+@media (max-width: 560px) {
+	.statusbar {
+		font-size: 11px;
+	}
+	.prompt-row {
+		flex-wrap: wrap;
+	}
+	.go-btn {
+		width: 100%;
+	}
+	footer {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 }
