@@ -7,9 +7,8 @@ async function loadLinks() {
         data.websites.forEach(site => {
             // Create the anchor element
             const anchor = document.createElement('a');
-            anchor.href = site.url;
+            anchor.href = `index.html?go=${encodeURIComponent(site.url)}`;
             anchor.textContent = site.name;
-            anchor.target = "_blank"; // Opens in a new tab
             
             // Add some basic styling or line breaks
             const wrapper = document.createElement('p');

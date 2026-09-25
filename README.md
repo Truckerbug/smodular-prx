@@ -36,3 +36,8 @@ Simply replace the port number (12345) with a number of your choice.
 The website will be available at your device's ip address:12345.
 Finally, set up port forwarding on your router pointing to your device's ip:port number.
 For example, 192.168.1.145:12345
+Or, to do everything in one command:
+
+```sh
+docker stop smodular-prx && docker rm smodular-prx && docker build -t smodular-prx . && docker run -d --restart unless-stopped --name smodular-prx -p 127.0.0.1:8080:8080 smodular-prx
+```

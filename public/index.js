@@ -81,3 +81,12 @@ form.addEventListener("submit", async (event) => {
 		document.body.classList.remove("proxy-active");
 	};
 });
+
+// Configuration for the games list
+// Must be at the end of the file because of load-order
+const params = new URLSearchParams(location.search);
+const autoGo = params.get("go");
+if (autoGo) {
+	address.value = autoGo;
+	form.requestSubmit();
+}
