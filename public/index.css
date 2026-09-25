@@ -442,3 +442,11 @@ footer .paths a:hover {
 		align-items: flex-start;
 	}
 }
+
+/* index.css */
+body.proxy-active .statusbar,
+body.proxy-active main,
+body.proxy-active footer,
+body.proxy-active .sweep-wrap {
+	display: none;
+}

@@ -68,6 +68,8 @@ form.addEventListener("submit", async (event) => {
 	document.body.appendChild(frame.frame);
 	frame.go(url);
 
+	document.body.classList.add("proxy-active");
+
 	// wire up the nav bar to this frame's own history controls
 	nav.hidden = false;
 	backBtn.onclick = () => frame.back();
@@ -76,5 +78,6 @@ form.addEventListener("submit", async (event) => {
 	exitBtn.onclick = () => {
 		frame.frame.remove();
 		nav.hidden = true;
+		document.body.classList.remove("proxy-active");
 	};
 });
