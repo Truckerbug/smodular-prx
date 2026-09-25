@@ -416,6 +416,9 @@ main {
 	border-color: var(--accent);
 	color: var(--accent);
 }
+.sj-nav[hidden] {
+	display: none;
+}
 
 /* ---- footer paths (homepage) ---- */
 footer .paths a {
